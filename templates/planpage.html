@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dig It: a Guide for Urban Agriculture</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/planpage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="/">Home</a></li>
+            <li role="presentation" class="active"><a href="plan">Plan</a></li>
+            <li role="presentation"><a href="nextSteps">Next Steps</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Dig It: a Guide for Urban Agriculture!</h3>
+      </div>
+
+      <div class="jumbotron" style="background-color: forestgreen;">
+        <h1>Plan an Efficient Garden</h1>
+        <form class="form-planpage">
+        <label for="inputLandSun1" class="sr-only">Amount of Sun Level 1</label>
+        <input type="number" name="inputLandSun1" id="inputLandSun1" class="form-control" placeholder="Amount of Sun Level 1" required autofocus>
+        <label for="inputLandSun2" class="sr-only">Amount of Sun Level 2</label>
+        <input type="number" name="inputLandSun2" id="inputLandSun2" class="form-control" placeholder="Amount of Sun Level 2" required autofocus>
+        <label for="inputLandSun3" class="sr-only">Amount of Sun Level 3</label>
+        <input type="number" name="inputLandSun3" id="inputLandSun3" class="form-control" placeholder="Amount of Sun Level 3" required autofocus>
+        <!--<label for="desiredBalanceMetric" class="sr-only">Optimize for:</label>-->
+        <input type="radio" name="desiredBalanceMetric" id="Balanced" class="form-control" value="Balanced" required autofocus> Balanced <br>
+        <input type="radio" name="desiredBalanceMetric" id="Nutritional Value" class="form-control" value="Nutritional Value" required autofocus> Nuritional Value <br>
+        <input type="radio" name="desiredBalanceMetric" id="Profit" class="form-control" value="Profit" required autofocus> Profit <br>
+        <label for="inputTime" class="sr-only">Time Available to Devote per Week</label>
+        <input type="number" name="inputTime" id="inputTime" class="form-control" placeholder="Time Available to Devote per Week" required autofocus>
+
+        <button id="btnRunModel" class="btn btn-lg btn-primary btn-block" type="button">Create your garden!</button>
+        </form>
+
+
+          <div class=metanav>
+          <!--{% for v in result['prob'].variables() %}-->
+          <!--<p>{{v.name}}: {{v.varValue}}</p>-->
+          <!--{% endfor %}-->
+
+          <!--Probably won't work when more than one crop is there so reconsider-->
+          <p>Percentage per Crop: {{result['varVal_name']}} {{result['varVal_val']}}</p>
+          <p>Total SQFT: {{result['total_land']}}</p>
+          <p>Total SQFT per Crop: {{result['land_per']}}</p>
+          <p>Total Yield per Crop: {{result['total_yield']}}</p>
+          <p>Total Value ($): {{result['total_val']}}</p>
+
+      <!--{% block body %}{% endblock %}-->
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
