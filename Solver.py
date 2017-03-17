@@ -1,8 +1,10 @@
 # Import PuLP modeler functions
 from pulp import *
+#import cgi
 
+#formData = cgi.FieldStorage()
 
-def solve():
+def solve(time, land1, land2, land3):
     # Creates a list of the produce options
     crops = ['CUC', 'EGG', 'STOM', 'GBEAN', 'BSQ', 'CTOM', 'ZUC', 'WAT', 'BPEP', 'STR', 'POT', 'SCORN', 'CAR', 'BEET',
              'ONS', 'RAD', 'SPEA', 'LET', 'GAR', 'BSPR', 'KALE', 'SPCH']
@@ -152,13 +154,13 @@ def solve():
     # The constraints are added to 'prob'
     prob += lpSum([crop_vars[i] for i in crops]) == 100, "PercentagesSum"
     # time
-    prob += lpSum([maintenance[i] * crop_vars[i] for i in crops]) <= 2.0, "TimeRequirement"
+    prob += lpSum([maintenance[i] * crop_vars[i] for i in crops]) <= time, "TimeRequirement"
     # landSun1
-    prob += lpSum([landSun1[i] * crop_vars[i] for i in crops]) <= 50.0, "LandRequirementSunlight1"
+    prob += lpSum([landSun1[i] * crop_vars[i] for i in crops]) <= land1, "LandRequirementSunlight1"
     # landSun2
-    prob += lpSum([landSun2[i] * crop_vars[i] for i in crops]) <= 100.0, "LandRequirementSunlight2"
+    prob += lpSum([landSun2[i] * crop_vars[i] for i in crops]) <= land2, "LandRequirementSunlight2"
     # landSun3
-    prob += lpSum([landSun3[i] * crop_vars[i] for i in crops]) <= 100.0, "LandRequirementSunlight3"
+    prob += lpSum([landSun3[i] * crop_vars[i] for i in crops]) <= land3, "LandRequirementSunlight3"
 
     land_per = []
     total_yield = []
@@ -220,5 +222,3 @@ def solve():
     result['total_val'] = total_val
     return result
 
-
-solve()

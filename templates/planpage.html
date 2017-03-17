@@ -9,6 +9,10 @@
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/planpage.css" rel="stylesheet">
 
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+
+    <script src="../static/js/calculate.js"></script>
+
   </head>
 
   <body>
@@ -22,7 +26,7 @@
             <li role="presentation"><a href="nextSteps">Next Steps</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Dig It: a Guide for Urban Agriculture!</h3>
+        <h3 class="text-muted">Dig It: A Guide for Urban Agriculture!</h3>
       </div>
 
       <div class="jumbotron" style="background-color: forestgreen;">
@@ -41,21 +45,14 @@
         <label for="inputTime" class="sr-only">Time Available to Devote per Week</label>
         <input type="number" name="inputTime" id="inputTime" class="form-control" placeholder="Time Available to Devote per Week" required autofocus>
 
-        <button id="btnRunModel" class="btn btn-lg btn-primary btn-block" type="button">Create your garden!</button>
+        <button id="createGarden" class="btn btn-lg btn-primary btn-block" type="button">Create your garden!</button>
         </form>
 
 
-          <div class=metanav>
-          <!--{% for v in result['prob'].variables() %}-->
-          <!--<p>{{v.name}}: {{v.varValue}}</p>-->
-          <!--{% endfor %}-->
+        <div class=metanav>
 
-          <!--Probably won't work when more than one crop is there so reconsider-->
-          <p>Percentage per Crop: {{result['varVal_name']}} {{result['varVal_val']}}</p>
-          <p>Total SQFT: {{result['total_land']}}</p>
-          <p>Total SQFT per Crop: {{result['land_per']}}</p>
-          <p>Total Yield per Crop: {{result['total_yield']}}</p>
-          <p>Total Value ($): {{result['total_val']}}</p>
+
+
 
       <!--{% block body %}{% endblock %}-->
         </div>
