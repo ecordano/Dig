@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dig It: A Guide to Urban Agriculture</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/">About</a></li>
+                    <li role="presentation"><a href="team">Team</a></li>
+                    <li role="presentation"><a href="howItWorks">How it Works</a></li>
+                    <li role="presentation"><a href="plan">Get Started</a></li>
+                    <li role="presentation" class="active"><a href="results">Results</a></li>
+                    <li role="presentation"><a href="nextSteps">Next Steps</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Dig It</h3>
+        </div>
+
+        <div class="jumbotron" style="background-color: forestgreen;">
+            <h1>Results</h1>
+            <p class="lead"></p>
+        </div>
+
+        <div class=metanav>
+ +          <!--{% for v in result['prob'].variables() %}-->
+ +          <!--<p>{{v.name}}: {{v.varValue}}</p>-->
+ +          <!--{% endfor %}-->
+ +
+ +          <!--Probably won't work when more than one crop is there so reconsider-->
+ +          <p>Percentage per Crop: {{result['varVal_name']}} {{result['varVal_val']}}</p>
+ +          <p>Total SQFT: {{result['total_land']}}</p>
+ +          <p>Total SQFT per Crop: {{result['land_per']}}</p>
+ +          <p>Total Yield per Crop: {{result['total_yield']}}</p>
+ +          <p>Total Value ($): {{result['total_val']}}</p>
+ +
+ +      <!--{% block body %}{% endblock %}-->
+ +      </div>
+
+        <footer class="footer">
+            <p>&copy; Company 2016</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
+

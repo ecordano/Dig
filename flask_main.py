@@ -14,9 +14,24 @@ def plan():
     return render_template('planpage.html')
 
 
+@app.route('/team')
+def team():
+    return render_template('team.html')
+
+
+@app.route('/howItWorks')
+def howItWorks():
+    return render_template('howItWorks.html')
+
+
 @app.route('/nextSteps')
 def nextSteps():
     return render_template('nextstepspage.html')
+
+
+@app.route('/results')
+def results():
+    return render_template('resultspage.html')
 
 
 @app.route('/calculate', methods=['POST'])
@@ -33,7 +48,7 @@ def calculate():
     print result
 
     # could do a different page to avoid the problem of planpage not rendering intially. any alternative?
-    return render_template('planpage.html', result=result)
+    return render_template('resultspage.html', result=result)
 
 if __name__ == "__main__":
     app.run()
