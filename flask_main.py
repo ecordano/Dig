@@ -44,7 +44,8 @@ def calculate():
     landone = float(request.form['inputLandSun1'])
     landtwo = float(request.form['inputLandSun2'])
     landthree = float(request.form['inputLandSun3'])
-    result = solve(time,landone,landtwo,landthree)
+    desiredMetric = request.form['desiredBalanceMetric']
+    result = solve(time,landone,landtwo,landthree,desiredMetric)
     print result
 
     # could do a different page to avoid the problem of planpage not rendering intially. any alternative?

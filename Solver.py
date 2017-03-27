@@ -4,7 +4,7 @@ from pulp import *
 
 #formData = cgi.FieldStorage()
 
-def solve(time, land1, land2, land3):
+def solve(time, land1, land2, land3, metric):
     # Creates a list of the produce options
     crops = ['CUC', 'EGG', 'STOM', 'GBEAN', 'BSQ', 'CTOM', 'ZUC', 'WAT', 'BPEP', 'STR', 'POT', 'SCORN', 'CAR', 'BEET',
              'ONS', 'RAD', 'SPEA', 'LET', 'GAR', 'BSPR', 'KALE', 'SPCH']
@@ -95,8 +95,7 @@ def solve(time, land1, land2, land3):
     # A dictionary of the nutrition density score of each of the crops
     nutrition = {'CUC': 0.0, 'EGG': 0.0, 'STOM': 20.37, 'GBEAN': 0.0, 'BSQ': 13.89, 'CTOM': 0.0, 'ZUC': 0.0, 'WAT': 0.0,
                  'BPEP': 0.0, 'STR': 17.59, 'POT': 0.0, 'SCORN': 0.0, 'CAR': 22.6, 'BEET': 0.0, 'ONS': 0.0,
-                 'RAD': 16.91,
-                 'SPEA': 0, 'LET': 70.73, 'GAR': 0.0, 'BSPR': 32.23, 'KALE': 49.07, 'SPCH': 86.43}
+                 'RAD': 16.91, 'SPEA': 0, 'LET': 70.73, 'GAR': 0.0, 'BSPR': 32.23, 'KALE': 49.07, 'SPCH': 86.43}
 
     # A dictionary of the watering reqs of each of the crops
     water = {'CUC': 4, 'EGG': 4, 'STOM': 4, 'GBEAN': 3, 'BSQ': 4, 'CTOM': 4, 'ZUC': 5, 'WAT': 2, 'BPEP': 3, 'STR': 4,
