@@ -1,43 +1,57 @@
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
+.reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
 }
 
-/*.jumbotron {*/
-    /*background-color: green !important;*/
+input[type="radio"]:checked ~ .reveal-if-active,
+input[type="checkbox"]:checked ~ .reveal-if-active {
+  opacity: 1;
+  max-height: 100px; /* little bit of a magic number :( */
+  padding-bottom: 325px;
+  overflow: visible;
+}
+
+/*body {*/
+  /*padding-top: 40px;*/
+  /*padding-bottom: 40px;*/
 /*}*/
 
-.form-planpage {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-planpage .form-planpage-heading,
-.form-planpage .checkbox {
-  margin-bottom: 10px;
-}
-.form-planpage .checkbox {
-  font-weight: normal;
-}
-.form-planpage .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-planpage .form-control:focus {
-  z-index: 2;
-}
-.form-planpage input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-planpage input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+/*!*.jumbotron {*!*/
+    /*!*background-color: green !important;*!*/
+/*!*}*!*/
+
+/*.form-planpage {*/
+  /*max-width: 330px;*/
+  /*padding: 15px;*/
+  /*margin: 0 auto;*/
+/*}*/
+/*.form-planpage .form-planpage-heading,*/
+/*.form-planpage .checkbox {*/
+  /*margin-bottom: 10px;*/
+/*}*/
+/*.form-planpage .checkbox {*/
+  /*font-weight: normal;*/
+/*}*/
+/*.form-planpage .form-control {*/
+  /*position: relative;*/
+  /*height: auto;*/
+  /*-webkit-box-sizing: border-box;*/
+     /*-moz-box-sizing: border-box;*/
+          /*box-sizing: border-box;*/
+  /*padding: 10px;*/
+  /*font-size: 16px;*/
+/*}*/
+/*.form-planpage .form-control:focus {*/
+  /*z-index: 2;*/
+/*}*/
+/*.form-planpage input[type="email"] {*/
+  /*margin-bottom: -1px;*/
+  /*border-bottom-right-radius: 0;*/
+  /*border-bottom-left-radius: 0;*/
+/*}*/
+/*.form-planpage input[type="password"] {*/
+  /*margin-bottom: 10px;*/
+  /*border-top-left-radius: 0;*/
+  /*border-top-right-radius: 0;*/
+/*}*/

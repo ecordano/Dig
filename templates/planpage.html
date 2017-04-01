@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Dig It: a Guide for Urban Agriculture</title>
+    <head>
+        <title>Dig It: a Guide for Urban Agriculture</title>
 
 
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-    <link href="../static/planpage.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <script src="../static/js/jquery-3.1.1.min.js"></script>
+        <link href="../static/css/style.css" rel="stylesheet">
 
-    <script src="../static/js/calculate.js"></script>
+        <link href="../static/css/planpage.css" rel="stylesheet">
 
-  </head>
+        <script src="../static/js/jquery-3.1.1.min.js"></script>
 
-  <body>
+        <script src="../static/js/calculate.js"></script>
 
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-              <li role="presentation" ><a href="/">About</a></li>
-              <li role="presentation"><a href="team">Team</a></li>
-              <li role="presentation"><a href="howItWorks">How it Works</a></li>
-              <li role="presentation" class="active"><a href="plan">Get Started</a></li>
-              <!--<li role="presentation"><a href="results">Results</a></li>-->
-              <li role="presentation"><a href="nextSteps">Next Steps</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted" style="font-size: 45px">Dig It</h3>
-      </div>
+    </head>
 
-      <div class="jumbotron" style="background-color: forestgreen;">
-        <h1 style="color: white">Plan an Efficient Garden</h1>
-        <form class="form-planpage">
-        <label for="inputLandSun1" class="sr-only">Amount of Sun Level 1</label>
-        <input type="number" name="inputLandSun1" id="inputLandSun1" class="form-control" placeholder="Amount of Sun Level 1" required autofocus>
-        <label for="inputLandSun2" class="sr-only">Amount of Sun Level 2</label>
-        <input type="number" name="inputLandSun2" id="inputLandSun2" class="form-control" placeholder="Amount of Sun Level 2" required autofocus>
-        <label for="inputLandSun3" class="sr-only">Amount of Sun Level 3</label>
-        <input type="number" name="inputLandSun3" id="inputLandSun3" class="form-control" placeholder="Amount of Sun Level 3" required autofocus>
-        <!--<label for="desiredBalanceMetric" class="sr-only">Optimize for:</label>-->
-        <input type="radio" name="desiredBalanceMetric" id="Balanced" class="form-control" value="Balanced" required autofocus> Balanced <br>
-        <input type="radio" name="desiredBalanceMetric" id="Nutritional Value" class="form-control" value="Nutritional Value" required autofocus> Nuritional Value <br>
-        <input type="radio" name="desiredBalanceMetric" id="Profit" class="form-control" value="Profit" required autofocus> Profit <br>
-        <label for="inputTime" class="sr-only">Time Available to Devote per Week</label>
-        <input type="number" name="inputTime" id="inputTime" class="form-control" placeholder="Time Available to Devote per Week" required autofocus>
+    <body style="background: lightgray">
 
-        <button id="createGarden" class="btn btn-lg btn-primary btn-block" type="button">Create your garden!</button>
-        </form>
-
-
-        <div class=metanav>
-
-
-
-
-      <!--{% block body %}{% endblock %}-->
+        <div class="container">
+        <div class="header">
+            <nav>
+            <ul class="nav nav-pills pull-right" style="padding-top: 35px">
+                  <li role="presentation" ><a href="/">About</a></li>
+                  <li role="presentation"><a href="team">Team</a></li>
+                  <li role="presentation"><a href="howItWorks">How it Works</a></li>
+                  <li role="presentation" class="active"><a href="plan">Get Started</a></li>
+                  <!--<li role="presentation"><a href="results">Results</a></li>-->
+                  <li role="presentation"><a href="nextSteps">Next Steps</a></li>
+            </ul>
+            </nav>
+            <h3 class="crop" style="margin-bottom: -70px">
+                <img src="http://i.imgur.com/V2fq7Cz.png">
+            </h3>
         </div>
-      </div>
 
-      <footer class="footer">
-        <p>&copy; Company 2015</p>
-      </footer>
+        <div class="jumbotron" style="background-color: forestgreen;">
+            <h1 style="color: lightgray; padding-bottom: 55px">Plan your Garden</h1>
+            <form class="form-planpage">
+                <p>Enter the following information regarding your lot. All fields are required.</p>
+                <input type="number" name="inputLandSun1" id="inputLandSun1" class="form-control" placeholder="SQFT of land in full shade" required autofocus>
+                <input type="number" name="inputLandSun2" id="inputLandSun2" class="form-control" placeholder="SQFT of land in partial sun" required autofocus>
+                <input type="number" name="inputLandSun3" id="inputLandSun3" class="form-control" placeholder="SQFT of land in full sun" required autofocus>
+                <p style="padding-top: 20px">Would you like to optimize your garden for:</p>
+                <input type="radio" name="desiredBalanceMetric" id="Personalized" class="form-control" value="Personalized" required autofocus> Personalized <br>
+                <div class="reveal-if-active">
+                    <p>Input your preferences for each crop within the range of 0-10</p>
+                    <input type="number" id="Beets" name="Beets" class="form-control" placeholder="Beets" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Bell Pepper" name="Bell Pepper" class="form-control" placeholder="Bell Pepper" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Brussel Sprouts" name="Brussel Sprouts" class="form-control" placeholder="Brussel Sprouts" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Butternut Squash" name="Butternut Squash" class="form-control" placeholder="Butternut Squash" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Carrots" name="Carrots" class="form-control" placeholder="Carrots" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Cherry Tomato" name="Cherry Tomato" class="form-control" placeholder="Cherry Tomato" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Cucumber" name="Cucumber" class="form-control" placeholder="Cucumber" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Eggplant" name="Eggplant" class="form-control" placeholder="Eggplant" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Garlic" name="Garlic" class="form-control" placeholder="Garlic" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Green Beans" name="Green Beans" class="form-control" placeholder="Green Beans" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Kale" name="Kale" class="form-control" placeholder="Kale" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Lettuce" name="Lettuce" class="form-control" placeholder="Lettuce" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Onion" name="Onion" class="form-control" placeholder="Onion" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Potato" name="Potato" class="form-control" placeholder="Potato" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Radish" name="Radish" class="form-control" placeholder="Radish" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Sweet Corn" name="Sweet Corn" class="form-control" placeholder="Sweet Corn" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Spinach" name="Spinach" class="form-control" placeholder="Spinach" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Sweet Peas" name="Sweet Peas" class="form-control" placeholder="Sweet Peas" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Tomato" name="Tomato" class="form-control" placeholder="Tomato" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Strawberries" name="Strawberries" class="form-control" placeholder="Strawberries" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Watermelon" name="Watermelon" class="form-control" placeholder="Watermelon" style="width: 26%; display: inline-block" required autofocus>
+                    <input type="number" id="Zucchini" name="Zucchini" class="form-control" placeholder="Zucchini" style="width: 26%; display: inline-block" required autofocus>
+                </div>
+                <input type="radio" name="desiredBalanceMetric" id="Balanced" class="form-control" value="Balanced" required autofocus> Balanced <br>
+                <input type="radio" name="desiredBalanceMetric" id="Nutritional Value" class="form-control" value="Nutritional Value" required autofocus> Nutritional Value <br>
+                <input type="radio" name="desiredBalanceMetric" id="Profit" class="form-control" value="Profit" required autofocus> Profit <br>
+                <label for="inputTime" class="sr-only">Time Available to Devote per Week</label>
+                <input type="number" name="inputTime" id="inputTime" class="form-control" placeholder="Time available to devote per week" style="margin-top: 15px" required autofocus>
+                <button id="createGarden" class="btn btn-lg btn-primary btn-block" type="button">Create your garden!</button>
+            </form>
 
-    </div>
-  </body>
+        </div>
+
+            <footer class="footer">
+                <p>&copy; Company 2015</p>
+            </footer>
+
+        </div>
+    </body>
 </html>
