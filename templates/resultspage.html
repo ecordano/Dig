@@ -16,7 +16,7 @@
 <body style="background: lightgray">
 
     <div class="container">
-        <div class="header" style="padding-bottom: 100px">
+        <div class="header" style="height: 105px">
             <nav>
                 <ul class="nav nav-pills pull-right" style="padding-top: 35px">
                     <li role="presentation"><a href="/">About</a></li>
@@ -27,9 +27,9 @@
                     <li role="presentation"><a href="nextSteps">Next Steps</a></li>
                 </ul>
             </nav>
-            <!--<h3 class="crop" style="margin-bottom: -70px">-->
-                <!--<img src="http://i.imgur.com/V2fq7Cz.png">-->
-            <!--</h3>-->
+            <h3 class="crop2" style="margin-bottom: -70px">
+                <img src="http://i.imgur.com/V2fq7Cz.png" style="width: 345px; margin-left: -110px; margin-top: -205px">
+            </h3>
         </div>
 
         <div class="jumbotron" style="background-color: forestgreen;">
@@ -43,13 +43,17 @@
             <!--&lt;!&ndash;<a href="https://docs.google.com/spreadsheets/d/1JKFurJM9Q_o7rV7wenr4PAkRH1J43xYBcVXGaupGicQ/edit#gid=983571878" target="_blank">Download</a>&ndash;&gt;-->
         <!--</div>-->
 
-        <div class=metanav>
-            <!--<p>Percentage per Crop: {{result['varVal_name']}} {{result['varVal_val']}}</p>-->
-            <p>Total SQFT: {{result['total_land']}}</p>
-            <p>Total SQFT per Crop: {{result['varVal_name']}} {{result['land_per']}}</p>
-            <p>Total Yield per Crop: {{result['total_yield']}}</p>
-            <p>Total Value ($): {{result['total_val']}}</p>
-        </div>
+        <!--<div class=metanav>-->
+            <!--&lt;!&ndash;<p>Percentage per Crop: {{result['varVal_name']}} {{result['varVal_val']}}</p>&ndash;&gt;-->
+            <!--<p>Total SQFT: {{result['total_land']}}</p>-->
+            <!--<p>Total SQFT per Crop: {{result['varVal_name']}} {{result['land_per']}}</p>-->
+            <!--<p>Total Yield per Crop: {{result['total_yield']}}</p>-->
+            <!--<p>Total Value ($): {{result['total_val']}}</p>-->
+            <!--<p>Test: {{result['num']}}</p>-->
+            <!--<p>Test2: {{result['varVal_name'][0]}}</p>-->
+        <!--</div>-->
+
+
 
         <div class="table">
             <style>
@@ -76,15 +80,62 @@
                         <th>Total SQFT per Crop</th>
                         <th>Approximate Total Yield per Crop</th>
                     </tr>
-                    <!--<script>-->
-                        <!--for (var i = 1; i < {{result['varVal_name']}}.length; i++) {-->
-                            <!--<tr>-->
-                            <!--"<td>"Eggplant"</td>"-->
-                            <!--"<td>"Maria Anders"</td>"-->
-                            <!--"<td>"Germany"</td>"-->
-                            <!--</tr>-->
-                    <!--}-->
-                    <!--</script>-->
+                    <tr>
+                        <th>{{result['english_name'][0]}}</th>
+                        <th>{{result['land_per'][0]}}</th>
+                        <th>{{result['total_yield'][0]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][1]}}</th>
+                        <th>{{result['land_per'][1]}}</th>
+                        <th>{{result['total_yield'][1]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][2]}}</th>
+                        <th>{{result['land_per'][2]}}</th>
+                        <th>{{result['total_yield'][2]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][3]}}</th>
+                        <th>{{result['land_per'][3]}}</th>
+                        <th>{{result['total_yield'][3]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][4]}}</th>
+                        <th>{{result['land_per'][4]}}</th>
+                        <th>{{result['total_yield'][4]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][5]}}</th>
+                        <th>{{result['land_per'][5]}}</th>
+                        <th>{{result['total_yield'][5]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][6]}}</th>
+                        <th>{{result['land_per'][6]}}</th>
+                        <th>{{result['total_yield'][6]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][7]}}</th>
+                        <th>{{result['land_per'][7]}}</th>
+                        <th>{{result['total_yield'][7]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][8]}}</th>
+                        <th>{{result['land_per'][8]}}</th>
+                        <th>{{result['total_yield'][8]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][9]}}</th>
+                        <th>{{result['land_per'][9]}}</th>
+                        <th>{{result['total_yield'][9]}}</th>
+                    </tr>
+                    <tr>
+                        <th>{{result['english_name'][10]}}</th>
+                        <th>{{result['land_per'][10]}}</th>
+                        <th>{{result['total_yield'][10]}}</th>
+                    </tr>
+
                 </table>
         </div>
 

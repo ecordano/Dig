@@ -77,7 +77,7 @@ def calculate():
         landtwo = float(request.form['inputLandSun2'])
         landthree = float(request.form['inputLandSun3'])
         result = solve(time,landone,landtwo,landthree,desiredMetric)
-        print result
+        # print result
 
     # could do a different page to avoid the problem of planpage not rendering intially. any alternative?
     return render_template('resultspage.html', result=result)

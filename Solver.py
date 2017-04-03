@@ -7,6 +7,13 @@ def solve(time, land1, land2, land3, metric):
     crops = ['CUC', 'EGG', 'STOM', 'GBEAN', 'BSQ', 'CTOM', 'ZUC', 'WAT', 'BPEP', 'STR', 'POT', 'SCORN', 'CAR', 'BEET',
              'ONS', 'RAD', 'SPEA', 'LET', 'GAR', 'BSPR', 'KALE', 'SPCH']
 
+    # A dictionary of the English name
+    eng_names = {'CUC': "Cucumber", 'EGG': "Eggplant", 'STOM': "Tomato", 'GBEAN': "Green Bean", 'BSQ': "Butternut Squash",
+                 'CTOM': "Cherry Tomato", 'ZUC': "Zucchini", 'WAT': "Watermelon", 'BPEP': "Bell Pepper", 'STR': "Strawberry",
+                 'POT': "Potato", 'SCORN': "Sweet Corn", 'CAR': "Carrot", 'BEET': "Beets", 'ONS': "Onion", 'RAD': "Radish",
+                 'SPEA': "Sweet Peas", 'LET': "Head Lettuce", 'GAR': "Garlic", 'BSPR': "Brussel Sprouts", 'KALE': "Kale",
+                 'SPCH': "Spinach"}
+
     # A dictionary of the costs of each of the crops
     # costs = {'CUC': ,
     #          'EGG': ,
@@ -33,10 +40,8 @@ def solve(time, land1, land2, land3, metric):
 
     # A dictionary of the land for each of the crops
     land = {'CUC': 1.0, 'EGG': 1.0, 'STOM': 4.0, 'GBEAN': 0.1, 'BSQ': 1.0, 'CTOM': 1.0, 'ZUC': 1.0, 'WAT': 2.0,
-            'BPEP': 1.0,
-            'STR': 0.3, 'POT': 1.0, 'SCORN': 1.0, 'CAR': 0.1, 'BEET': 0.1, 'ONS': 0.1, 'RAD': 0.1, 'SPEA': 1.0,
-            'LET': 0.3,
-            'GAR': 0.1, 'BSPR': 2.3, 'KALE': 1.0, 'SPCH': 0.1}
+            'BPEP': 1.0, 'STR': 0.3, 'POT': 1.0, 'SCORN': 1.0, 'CAR': 0.1, 'BEET': 0.1, 'ONS': 0.1, 'RAD': 0.1, 'SPEA': 1.0,
+            'LET': 0.3, 'GAR': 0.1, 'BSPR': 2.3, 'KALE': 1.0, 'SPCH': 0.1}
 
     # A dictionary of the land where sunlight level is [1,2,3]
     landSun1 = {'CUC': LpStatusInfeasible, 'EGG': LpStatusInfeasible, 'STOM': LpStatusInfeasible,
@@ -166,6 +171,8 @@ def solve(time, land1, land2, land3, metric):
     varVal_name = []
     varVal_val = []
     total_val = 0
+    english_names = []
+    num = 0
 
     # # min number of crops
     # prob += lpSum() >= minim, "MinCropRequirement"  # FIGURE OUT
@@ -194,13 +201,14 @@ def solve(time, land1, land2, land3, metric):
         if v.varValue > 0:
             varVal_name.append(true_name[1])
             varVal_val.append(v.varValue)
-
-        list.append(land_per, ((v.varValue * 0.01) * total_land))
+            list.append(land_per, ((v.varValue * 0.01) * total_land))
+            total_yield.append(((v.varValue * 0.01) * total_land) / land.get(true_name[1]))
+            english_names.append(eng_names.get(true_name[1]))
+            num += 1
 
         # total_land += (v.varValue * 0.01) * 250
         # total_land = land1 + land2 + land3
 
-        total_yield.append(((v.varValue * 0.01) * total_land) / land.get(true_name[1]))
 
         total_val += ((v.varValue * 0.01) * total_land) * valsqft.get(true_name[1])
 
@@ -220,6 +228,8 @@ def solve(time, land1, land2, land3, metric):
     result['land_per'] = land_per
     result['total_yield'] = total_yield
     result['total_val'] = total_val
+    result['num'] = num
+    result['english_name'] = english_names
     return result
 
 
@@ -252,12 +262,17 @@ def solve_man(time, land1, land2, land3, metric, v1, v2, v3, v4, v5, v6, v7, v8,
     #          'KALE': ,
     #          'SPCH': }
 
+    # A dictionary of the English name
+    eng_names = {'CUC': "Cucumber", 'EGG': "Eggplant", 'STOM': "Tomato", 'GBEAN': "Green Bean", 'BSQ': "Butternut Squash",
+                 'CTOM': "Cherry Tomato", 'ZUC': "Zucchini", 'WAT': "Watermelon", 'BPEP': "Bell Pepper", 'STR': "Strawberry",
+                 'POT': "Potato", 'SCORN': "Sweet Corn", 'CAR': "Carrot", 'BEET': "Beets", 'ONS': "Onion", 'RAD': "Radish",
+                 'SPEA': "Sweet Peas", 'LET': "Head Lettuce", 'GAR': "Garlic", 'BSPR': "Brussel Sprouts", 'KALE': "Kale",
+                 'SPCH': "Spinach"}
+
     # A dictionary of the land for each of the crops
     land = {'CUC': 1.0, 'EGG': 1.0, 'STOM': 4.0, 'GBEAN': 0.1, 'BSQ': 1.0, 'CTOM': 1.0, 'ZUC': 1.0, 'WAT': 2.0,
-            'BPEP': 1.0,
-            'STR': 0.3, 'POT': 1.0, 'SCORN': 1.0, 'CAR': 0.1, 'BEET': 0.1, 'ONS': 0.1, 'RAD': 0.1, 'SPEA': 1.0,
-            'LET': 0.3,
-            'GAR': 0.1, 'BSPR': 2.3, 'KALE': 1.0, 'SPCH': 0.1}
+            'BPEP': 1.0, 'STR': 0.3, 'POT': 1.0, 'SCORN': 1.0, 'CAR': 0.1, 'BEET': 0.1, 'ONS': 0.1, 'RAD': 0.1, 'SPEA': 1.0,
+            'LET': 0.3, 'GAR': 0.1, 'BSPR': 2.3, 'KALE': 1.0, 'SPCH': 0.1}
 
     # A dictionary of the land where sunlight level is [1,2,3]
     landSun1 = {'CUC': LpStatusInfeasible, 'EGG': LpStatusInfeasible, 'STOM': LpStatusInfeasible,
@@ -393,7 +408,9 @@ def solve_man(time, land1, land2, land3, metric, v1, v2, v3, v4, v5, v6, v7, v8,
     total_yield = []
     varVal_name = []
     varVal_val = []
+    english_names = []
     total_val = 0
+    num = 0
 
     # # min number of crops
     # prob += lpSum() >= minim, "MinCropRequirement"  # FIGURE OUT
@@ -422,20 +439,17 @@ def solve_man(time, land1, land2, land3, metric, v1, v2, v3, v4, v5, v6, v7, v8,
         if v.varValue > 0:
             varVal_name.append(true_name[1])
             varVal_val.append(v.varValue)
+            list.append(land_per, ((v.varValue * 0.01) * total_land))
+            total_yield.append(((v.varValue * 0.01) * total_land) / land.get(true_name[1]))
+            english_names.append(eng_names.get(true_name[1]))
+            num += 1
 
-        list.append(land_per, ((v.varValue * 0.01) * total_land))
+        # list.append(land_per, ((v.varValue * 0.01) * total_land))
 
-        total_yield.append(((v.varValue * 0.01) * total_land) / land.get(true_name[1]))
+        # total_yield.append(((v.varValue * 0.01) * total_land) / land.get(true_name[1]))
 
         total_val += ((v.varValue * 0.01) * total_land) * valsqft.get(true_name[1])
 
-    # The optimised objective function value is printed to the screen
-    # print "Value of Produce ($) = ", value(prob.objective)
-    # print "Total SQFT = ", total_land
-    # print "SQFT per crop: ", land_per
-    # print "Yield (# plants) per crop: ", total_yield
-    # print "Total Value of Produce ($) = ", total_val
-    # print "Total yield = ", total_yield
 
     result = {}
     result['prob'] = prob
@@ -445,4 +459,6 @@ def solve_man(time, land1, land2, land3, metric, v1, v2, v3, v4, v5, v6, v7, v8,
     result['land_per'] = land_per
     result['total_yield'] = total_yield
     result['total_val'] = total_val
+    result['num'] = num
+    result['english_name'] = english_names
     return result
