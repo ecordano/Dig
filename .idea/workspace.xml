@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="012dd907-2569-4ea9-b1de-0cd3853ef918" name="Default" comment="" />
+    <list default="true" id="012dd907-2569-4ea9-b1de-0cd3853ef918" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flask_main.py" afterPath="$PROJECT_DIR$/flask_main.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +43,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="flask_main.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="flask_main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/flask_main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1088">
-                  <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+                <state relative-caret-position="393">
+                  <caret line="85" column="22" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -53,7 +55,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Procfile">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
@@ -213,12 +215,12 @@
         <option value="$PROJECT_DIR$/templates/team.html" />
         <option value="$PROJECT_DIR$/templates/nextstepspage.html" />
         <option value="$PROJECT_DIR$/templates/planpage.html" />
-        <option value="$PROJECT_DIR$/flask_main.py" />
         <option value="$PROJECT_DIR$/Solver.py" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/resultspage.html" />
         <option value="$PROJECT_DIR$/templates/howItWorks.html" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/flask_main.py" />
       </list>
     </option>
   </component>
@@ -1097,21 +1099,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flask_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="85" column="22" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
